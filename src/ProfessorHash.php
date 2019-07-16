@@ -39,11 +39,15 @@ class ProfessorHash implements ProfessorHashInterface
      * @return string
      */
 	 public function makeHash($rand_string = ''){
-
-	  //varify is given arg is string 
+       
+         //varify is given arg is string 
 		if(!is_string($rand_string))
-	    	return;//Do not make any operation
- 		
+            return;//Do not make any operation
+        
+        //If by default args are empty 
+        if($rand_string === '')
+            $rand_string = $this->randomString(); //Generate random string
+            
  		$hashed_string ='';
 
 	   for ($i=0; $i < strlen($rand_string); $i++){
