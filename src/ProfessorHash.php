@@ -49,8 +49,8 @@ class ProfessorHash implements ProfessorHashInterface
 	   for ($i=0; $i < strlen($rand_string); $i++){
 	        $hashed_string .= dechex( //Convert to Hex
                                     strval( //Convert To String                                          
-                                        ord($rand_string[$i])) // 
-                                        );
+                                        ord(    $rand_string[$i]    ) //Get ASCI
+                                        ));
 	    }
 
 	   return sha1(md5($hashed_string)); 
