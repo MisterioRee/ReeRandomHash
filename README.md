@@ -1,6 +1,10 @@
 # Ree-random-hash
 Generates random Hash and Random String 
 
+[![Latest Stable Version](https://poser.pugx.org/rehan/ree-random-hash/v/stable)](https://packagist.org/packages/rehan/ree-random-hash)
+[![Total Downloads](https://poser.pugx.org/rehan/ree-random-hash/downloads)](https://packagist.org/packages/rehan/ree-random-hash)
+[![License](https://poser.pugx.org/rehan/ree-random-hash/license)](https://packagist.org/packages/rehan/ree-random-hash)
+
 #Usage
 
 To generate random string 
