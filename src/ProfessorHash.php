@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * This is randrom hash generator provide more flexibility generating 
+ * random hashes
+ * Auther: Muhammad Rehan
+ * email: mrmuhammadrehan65@gmail.com 
+ */
+
 namespace ProfessorHash;
 
 class ProfessorHash implements ProfessorHashInterface
