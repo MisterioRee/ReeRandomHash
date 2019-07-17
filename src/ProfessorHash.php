@@ -32,31 +32,53 @@ class ProfessorHash implements ProfessorHashInterface
      }
 
 
-     /**
-     * Generate hash from given string, shuffle more to make it unpredictable
+    /**
+     * Generate hash from given value, shuffle more to make it unpredictable
+     * if the given value is string will make hash from the given seed,
+     * if given value is int will make random string with the given length to seed hash string
      *
-     * @param  string  $string
+     * @param  string|int  $value
      * @return string
      */
-	 public function makeHash($rand_string = ''){
+	 public function makeHash($value){
        
-         //varify is given arg is string 
-		if(!is_string($rand_string))
-            return;//Do not make any operation
+        $hash_seed ='';
+
+         //varify is given arg is int 
+		if(is_int($value))
+           $hash_seed = $this->randomString($value); //Generate random string
         
         //If by default args are empty 
-        if($rand_string === '')
-            $rand_string = $this->randomString(); //Generate random string
+        if(is_string($value))
+            $hash_seed = $value; 
             
- 		$hashed_string ='';
+        return $this->hash($hash_seed);
+	
+      }
+      
 
-	   for ($i=0; $i < strlen($rand_string); $i++){
-	        $hashed_string .= dechex( //Convert to Hex
-                                    strval( //Convert To String                                          
-                                        ord(    $rand_string[$i]    ) //Get ASCI
-                                        ));
-	    }
+	/**
+     * Generate hash from given seed, shuffle more to make it unpredictable
+     *
+     * @param  string  $seed_string
+     * @return string
+     */
+     public function hash($seed_string ){
 
-	   return sha1(md5($hashed_string)); 
-	  }
+        //Validate input seed string
+        if(!is_string($seed_string) || !isset($seed_string))
+            return "Validate Seed"; //Throw an Exception
+
+        $hashed_string ='';
+        //Generate string
+        for ($i=0; $i < strlen($seed_string); $i++){
+             $hashed_string .= dechex( //Convert to Hex
+                                     strval( //Convert To String                                          
+                                         ord(  $seed_string[$i]   ) //Get ASCI
+                                         ));
+         }
+         
+         return sha1(md5($hashed_string)); 
+     }      
+
 }
