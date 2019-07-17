@@ -49,8 +49,12 @@ class ProfessorHash implements ProfessorHashInterface
            $hash_seed = $this->randomString($value); //Generate random string
         
         //If by default args are empty 
-        if(is_string($value))
+        elseif(is_string($value))
             $hash_seed = $value; 
+        
+        else{
+            $hash_seed = $this->randomString($value); //Generate random string with default length
+        }
             
         return $this->hash($hash_seed);
 	
